@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L🔒CK IN.</title>
+    <link rel="stylesheet" href="./static/Home.css" />
+    <link rel="stylesheet" href="./static/query.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body>
+    <div id="hamburger-menu">
+      <span class="menu-bar">&#9776;</span>
+      <div class="menu-list">
+        <ul>
+          <li><a href="./templates/To-Do.html">To Do</a></li>
+          <li><a href="./templates/Ghost_mode.html">Ghost Mode</a></li>
+          <li><a href="./templates/NoSugarChallenge.html">No Sugar</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <header>
+      <div id="logo">
+        <img src="./static/logo.png" alt="Lock-In Logo" />
+      </div>
+    </header>
+
+    <section id="home-buttons">
+      <a href="./templates/To-Do.html"
+        ><button class="home-btn">To-Do List 📋</button></a
+      >
+      <a href="./templates/Ghost_mode.html"
+        ><button class="home-btn">Ghost 👻</button></a
+      >
+      <a href="./templates/NoSugarChallenge.html"
+        ><button class="home-btn">No Sugar</button></a
+      >
+      <a href="/quran" style="font-family: fantasy">
+        <button class="home-btn">Quran</button>
+      </a>
+    </section>
+
+    <script>
+      const menuBtn = document.querySelector(".menu-bar");
+      const menuList = document.querySelector(".menu-list");
+
+      // Open or close the menu when the hamburger icon is clicked
+      menuBtn.addEventListener("click", () => {
+        menuList.classList.toggle("active");
+      });
+
+      // Close the menu if clicked outside of it
+      document.addEventListener("click", (event) => {
+        if (
+          !menuBtn.contains(event.target) &&
+          !menuList.contains(event.target)
+        ) {
+          menuList.classList.remove("active");
+        }
+      });
+
+      // Optional: Close the menu when the mouse leaves the menu area
+      menuList.addEventListener("mouseleave", () => {
+        menuList.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>
