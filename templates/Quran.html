@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L🔒CK IN.</title>
+    <link rel="stylesheet" href="/static/Home.css" />
+    <link rel="stylesheet" href="/static/query.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body>
+    <div id="hamburger-menu">
+      <span class="menu-bar">&#9776;</span>
+      <div class="menu-list">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/todo">To Do</a></li>
+          <li><a href="/ghost_mode">Ghost Mode</a></li>
+          <li><a href="/no_sugar_challenge">No sugar</a></li>
+        </ul>
+      </div>
+    </div>
+    <header>
+      <h1>قراءة القرآن</h1>
+    </header>
+    <section id="quran-buttons">
+      <a href="https://quran.com" target="_blank">
+        <button class="quran-btn">Al-Quran</button>
+      </a>
+      <a
+        href="https://timesprayer.com/en/prayer-times-in-montreal.html"
+        target="_blank"
+      >
+        <button class="quran-btn">Prayer time</button>
+      </a>
+      <a href="https://www.duas.org" target="_blank">
+        <button class="quran-btn">Qibla</button>
+      </a>
+      <a
+        href="https://www.islamicstudiesresources.com/uploads/1/9/8/1/19819855/seerah_book_by_shaykh_siddeeq.pdf"
+        target="_blank"
+      >
+        <button class="quran-btn">Seerah</button>
+      </a>
+      <a
+        href="https://www.calculator.net/gpa-calculator.html?da1=STT1001&ca1=2.7&la1=b-&sa1=&da2=INF1001&ca2=1&la2=d&sa2=&da3=INF1002&ca3=2.3&la3=c%2B&sa3=&da4=INF1004&ca4=2.7&la4=b-&sa4=&da5=INF1034&ca5=3.3&la5=b%2B&sa5=&da6=SMI1001&ca6=3&la6=b&sa6=&da7=PIF1005&ca7=4&la7=a&sa7=&da8=SIF1053&ca8=3&la8=b&sa8=&da9=INF1035&ca9=3.7&la9=a-&sa9=&da10=INF1006&ca10=3.7&la10=a-&sa10=&da11=CSE1001&ca11=3.7&la11=a-&sa11=&na=11&pgpa=&pcredit=&format=l&printit=1&ftype=1&sc=1"
+        target="_blank"
+      >
+        <button class="quran-btn">Cote (Moyenne Cumul.)</button>
+      </a>
+    </section>
+
+    <script>
+      const menuBtn = document.querySelector(".menu-bar");
+      const menuList = document.querySelector(".menu-list");
+
+      // Open or close the menu when the hamburger icon is clicked
+      menuBtn.addEventListener("click", () => {
+        menuList.classList.toggle("active");
+      });
+
+      // Close the menu if clicked outside of it
+      document.addEventListener("click", (event) => {
+        if (
+          !menuBtn.contains(event.target) &&
+          !menuList.contains(event.target)
+        ) {
+          menuList.classList.remove("active");
+        }
+      });
+
+      // Optional: Close the menu when the mouse leaves the menu area
+      menuList.addEventListener("mouseleave", () => {
+        menuList.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>

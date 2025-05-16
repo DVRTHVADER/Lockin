@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LCK IN.</title>
+    <link rel="stylesheet" href="/static/Home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+
+  <body>
+    <section id="j">
+      <!-- Hamburger Menu -->
+      <div id="hamburger-menu">
+        <span class="menu-bar">&#9776;</span>
+        <div class="menu-list">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/ghost_mode">Ghost Mode</a></li>
+            <li><a href="/no_sugar_challenge">No Sugar Challenge</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <section id="Header">
+        <h1 class="animate__animated animate__fadeIn animate__delay-1s">
+          L🔒CKED IN
+        </h1>
+        <h2>Change starts now</h2>
+      </section>
+      <ul id="data-list"></ul>
+      <section id="todo-form">
+        <input type="text" id="todo-input" placeholder="Enter a new task" />
+        <button id="add-btn">Add</button>
+      </section>
+    </section>
+
+    <script>
+      const list = document.getElementById("data-list");
+      const todoInput = document.getElementById("todo-input");
+      const addBtn = document.getElementById("add-btn");
+
+      // Fetch and display the to-dos
+      function fetchTodos() {
+        list.innerHTML = ""; // Clear the list
+        fetch("http://127.0.0.1:5000/api/todos")
+          .then((response) => response.json())
+          .then((data) => {
+            data.forEach((item) => {
+              const listItem = document.createElement("li");
+              listItem.textContent = item.name;
+
+              // Create checkbox for marking as done
+              const doneCheckbox = document.createElement("input");
+              doneCheckbox.type = "checkbox";
+              doneCheckbox.checked = item.done || false; // If already done, mark as checked
+              doneCheckbox.addEventListener("change", () => {
+                if (doneCheckbox.checked) {
+                  markDone(item.id);
+                }
+              });
+
+              // Add delete button to each item
+              const deleteBtn = document.createElement("button");
+              deleteBtn.textContent = "Delete";
+              deleteBtn.onclick = function () {
+                deleteTodo(item.id);
+              };
+
+              listItem.prepend(doneCheckbox); // Add checkbox before the task name
+              listItem.appendChild(deleteBtn); // Add delete button
+              list.appendChild(listItem);
+            });
+          })
+          .catch((error) => console.error("Error fetching data:", error));
+      }
+      // Add event listener for "Enter" key
+
+      // Add a new to-do
+      function addTodo() {
+        const todoValue = todoInput.value.trim(); // Get input value and trim whitespace
+
+        if (todoValue === "") {
+          alert("Please enter a task."); // Show an alert if input is empty
+          return;
+        }
+
+        const newTodo = { name: todoValue };
+
+        fetch("http://127.0.0.1:5000/api/todos", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newTodo),
+        })
+          .then((response) => response.json())
+          .then(() => {
+            todoInput.value = ""; // Clear the input field
+            fetchTodos(); // Refresh the list
+          })
+          .catch((error) => console.error("Error adding data:", error));
+      }
+
+      // Delete a to-do
+      function deleteTodo(id) {
+        fetch(`http://127.0.0.1:5000/api/todos/${id}`, {
+          method: "DELETE",
+        })
+          .then(() => fetchTodos()) // Refresh the list after deletion
+          .catch((error) => console.error("Error deleting data:", error));
+      }
+
+      // Mark task as done
+      function markDone(id) {
+        fetch(`http://127.0.0.1:5000/api/todos/${id}/done`, {
+          method: "PUT",
+        }).then(() => fetchTodos()); // Refresh the list
+      }
+
+      // Event listeners
+      addBtn.addEventListener("click", addTodo);
+
+      // Initial fetch of to-do items
+      fetchTodos();
+
+      // Hamburger Menu Toggle
+      const menuBtn = document.querySelector(".menu-bar");
+      const menuList = document.querySelector(".menu-list");
+
+      // Open or close the menu when the hamburger icon is clicked
+      menuBtn.addEventListener("click", () => {
+        menuList.classList.toggle("active");
+      });
+
+      // Close the menu if clicked outside of it
+      document.addEventListener("click", (event) => {
+        // If the click was outside of the hamburger menu and the menu itself, close the menu
+        if (
+          !menuBtn.contains(event.target) &&
+          !menuList.contains(event.target)
+        ) {
+          menuList.classList.remove("active");
+        }
+      });
+
+      // Optional: Close the menu when the mouse leaves the menu area (hover out)
+      menuList.addEventListener("mouseleave", () => {
+        menuList.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>

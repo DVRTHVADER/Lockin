@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LCK IN.</title>
+    <link rel="stylesheet" href="/static/Home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body>
+    <!-- Hamburger Menu -->
+    <div id="hamburger-menu">
+      <span class="menu-bar">&#9776;</span>
+      <div class="menu-list">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/ghost_mode">Ghost Mode</a></li>
+          <li><a href="/todo">To Do</a></li>
+        </ul>
+      </div>
+    </div>
+    <section id="Challenge">
+      <div class="rules-section">
+        <h2>Rules for the No Sugar Challenge</h2>
+        <ul>
+          <li>
+            No Added Sugars: Avoid foods with sugar, honey, syrups, or
+            artificial sweeteners. Check labels for hidden sugars (e.g.,
+            sucrose, high-fructose corn syrup).
+          </li>
+          <li>
+            Natural Sugars Allowed: You can have whole fruits (in moderation)
+            and unsweetened dairy products.
+          </li>
+          <li>Stay Hydrated: Drink plenty of water and herbal teas.</li>
+          <li>
+            Meal Prep is Key: Plan and prepare meals to avoid processed foods.
+          </li>
+          <li>
+            Read Labels: Avoid packaged foods with more than 5g of sugar per
+            serving.
+          </li>
+        </ul>
+        <h2>Daily Routine</h2>
+        <h3>Morning</h3>
+        <ul>
+          <li>Hydrate: Start with a glass of water (add lemon for flavor).</li>
+          <li>
+            Breakfast Options:
+            <ul>
+              <li>Scrambled eggs with spinach and avocado.</li>
+              <li>
+                Overnight oats with chia seeds, unsweetened almond milk, and
+                fresh berries.
+              </li>
+              <li>Greek yogurt (unsweetened) with nuts and seeds.</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>Mid-Morning Snack</h3>
+        <ul>
+          <li>Handful of almonds or walnuts.</li>
+          <li>Veggie sticks (carrots, celery, cucumber) with hummus.</li>
+        </ul>
+        <h3>Lunch</h3>
+        <ul>
+          <li>
+            Grilled chicken or salmon with a large mixed salad (olive oil and
+            lemon dressing).
+          </li>
+          <li>Quinoa or brown rice with steamed veggies and tofu.</li>
+          <li>Turkey lettuce wraps with avocado and cucumbers.</li>
+        </ul>
+        <h3>Afternoon Snack</h3>
+        <ul>
+          <li>A boiled egg and a small apple.</li>
+          <li>A handful of unsweetened trail mix (nuts and seeds only).</li>
+        </ul>
+        <h3>Dinner</h3>
+        <ul>
+          <li>
+            Stir-fry with lean protein (chicken, shrimp, or tofu) and mixed
+            vegetables.
+          </li>
+          <li>
+            Grilled steak or chicken with roasted sweet potatoes and sautéed
+            greens.
+          </li>
+          <li>Lentil soup with a side of roasted veggies.</li>
+        </ul>
+        <h3>Evening</h3>
+        <ul>
+          <li>
+            Herbal tea (like chamomile, peppermint, or cinnamon) to curb sweet
+            cravings.
+          </li>
+        </ul>
+        <h2>Daily Non-Negotiables</h2>
+        <ul>
+          <li>Stay Hydrated: Aim for 2-3 liters of water per day.</li>
+          <li>
+            Craving Hack: If a craving strikes, eat a piece of fruit or drink a
+            glass of water.
+          </li>
+          <li>
+            Sleep: Get 7-8 hours to reduce sugar cravings caused by fatigue.
+          </li>
+          <li>
+            No Processed Foods: Cook your meals at home as much as possible.
+          </li>
+        </ul>
+        <h2>7-Day Plan Highlights</h2>
+        <ul>
+          <li>
+            <strong>Day 1-2: Adjusting</strong>
+            <ul>
+              <li>
+                Focus on clean meals and avoid temptation by removing sugary
+                foods from your home.
+              </li>
+              <li>
+                Be prepared for mild cravings or energy dips. Snack smart to
+                stay on track.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Day 3-4: Detox in Progress</strong>
+            <ul>
+              <li>
+                Cravings may peak, but stay strong. Keep your meals flavorful
+                with spices and herbs.
+              </li>
+              <li>
+                Energy levels may stabilize. Enjoy how natural foods taste
+                without sugar.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Day 5-6: Feeling Good</strong>
+            <ul>
+              <li>Notice improved energy and reduced bloating.</li>
+              <li>Your taste buds will start to adapt to less sugar.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Day 7: Success</strong>
+            <ul>
+              <li>
+                Celebrate completing the week with a sugar-free treat, like a
+                homemade energy ball (dates, nuts, and cocoa).
+              </li>
+              <li>
+                Reflect on how you feel and plan to continue reducing added
+                sugars in the future.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <script>
+      const menuBtn = document.querySelector(".menu-bar");
+      const menuList = document.querySelector(".menu-list");
+
+      // Open or close the menu when the hamburger icon is clicked
+      menuBtn.addEventListener("click", () => {
+        menuList.classList.toggle("active");
+      });
+
+      // Close the menu if clicked outside of it
+      document.addEventListener("click", (event) => {
+        // If the click was outside of the hamburger menu and the menu itself, close the menu
+        if (
+          !menuBtn.contains(event.target) &&
+          !menuList.contains(event.target)
+        ) {
+          menuList.classList.remove("active");
+        }
+      });
+
+      // Optional: Close the menu when the mouse leaves the menu area (hover out)
+      menuList.addEventListener("mouseleave", () => {
+        menuList.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>

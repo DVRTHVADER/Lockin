@@ -1,0 +1,297 @@
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(45deg, #eabc60a5 30%, #002264 70%);
+  background-size: 300% 300%;
+  animation: gradientAnimation 100s ease infinite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  overflow: hidden;
+}
+
+/* Header Section Styling */
+#Header h1 {
+  font-size: 3rem;
+  text-align: top;
+  margin-bottom: 20px;
+  animation: fadeInUp 3s ease-out;
+}
+
+#Header h2 {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Animation for gradient */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animation for text */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Challenge Section Styling */
+#Challenge {
+  backdrop-filter: blur(30px);
+  color: #000;
+  padding: 20px;
+  border: 30px solid rgba(89, 70, 1, 0.14);
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+.rules-section ul {
+  max-height: 80vh;
+  overflow-y: auto;
+  text-overflow: ellipsis;
+  padding: 10px;
+  list-style: none;
+}
+
+.rules-section ul > li {
+  margin: 10px 0;
+}
+
+.rules-section ul ul {
+  margin-left: 20px;
+}
+
+/* Hamburger Menu Styling */
+#hamburger-menu {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+.menu-bar {
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.menu-bar:hover {
+  color: #8a7501;
+}
+
+.menu-list {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  background-color: rgba(33, 32, 32, 0.284);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; /* Prevent interaction when hidden */
+  transition: opacity 3s ease, visibility 2s 3s; /* 3s fade transition */
+}
+
+.menu-list.active {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto; /* Allow interaction when visible */
+  transition: opacity 3s ease, visibility 2s 3s; /* Keep the 3s fade when active */
+}
+
+.menu-list ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.menu-list ul li {
+  margin: 20px 0;
+}
+
+.menu-list ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.menu-list ul li a:hover {
+  color: #03004180;
+}
+
+/* Footer Styling */
+#footer {
+  background-color: rgba(5, 4, 50, 0.05);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Button Styling */
+
+button {
+  cursor: pointer;
+}
+
+.home-btn {
+  padding: 10px 20px;
+  background-color: #00326050;
+  color: rgb(239, 182, 129);
+  border-width: 0px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+  border-radius: 5px;
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+  background-color: #0b033d00;
+}
+
+/* Add Task Styling */
+input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 70%;
+  font-size: 1rem;
+}
+
+#todo-form button {
+  background-color: #2d04b362;
+  color: white;
+  border: 0px;
+  padding: 10px 20px;
+  font-size: 0.4rem;
+  border-radius: 5px;
+}
+
+#todo-form button:hover {
+  background-color: #13001600;
+}
+#home-buttons {
+  margin-top: 100px;
+  text-align: center; /* Centers the buttons */
+}
+
+#todo-form {
+  display: inline-flex;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 500px;
+}
+
+#todo-form input {
+  padding: 10px;
+  width: 80%;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: none;
+  font-size: 1rem;
+}
+/* To-Do List Styling */
+#data-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  width: 80%;
+  max-width: 500px;
+}
+
+#data-list li {
+  background-color: rgba(0, 0, 0, 0.8);
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+#data-list li:hover {
+  background-color: rgba(23, 23, 23, 0.8);
+}
+
+#data-list button {
+  background-color: #674901c1;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: 5px;
+}
+
+#data-list button:hover {
+  background-color: #1f0000c9;
+}
+.quran-btn {
+  display: inline-block;
+  padding: 15px 30px; /* Larger padding for a professional feel */
+  font-size: 18px; /* Slightly larger font size */
+  font-family: "Arial", sans-serif;
+  color: #ffa500; /* Light orange text */
+  background-color: rgba(255, 165, 0, 0.2); /* Low-opacity orange background */
+  border: 2px solid #ffa500; /* Light orange border */
+  border-radius: 8px; /* Slightly rounded corners for a modern look */
+  text-align: center;
+  text-decoration: none; /* Remove underline */
+  cursor: pointer; /* Pointer cursor for interactivity */
+  margin: 10px; /* Adds spacing between buttons */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Hover effect */
+.quran-btn:hover {
+  /* Transition to a circle */
+  background-color: rgba(255, 166, 0, 0.074); /* Slightly darker background */
+  color: #ffffff; /* Change text color to white */
+  transform: scale(1.1); /* Slightly enlarge the button */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+/* Button container for alignment and spacing */
+#quran-buttons {
+  display: flex;
+  flex-direction: column; /* Arrange buttons vertically */
+  align-items: center; /* Center align buttons */
+  gap: 15px; /* Consistent spacing between buttons */
+  margin-top: 20px; /* Add spacing at the top */
+}

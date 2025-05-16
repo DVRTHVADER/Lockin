@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L🔒CK IN.</title>
+    <link rel="stylesheet" href="/static/Home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body>
+    <div id="hamburger-menu">
+      <span class="menu-bar">&#9776;</span>
+      <div class="menu-list">
+        <ul>
+          <li><a href="/todo">To Do</a></li>
+          <li><a href="/">home</a></li>
+          <li><a href="/no_sugar_challenge">No sugar</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <section id="Challenge">
+      <div class="rules-section">
+        <ul>
+          <li>Monday-Friday: Discipline Days</li>
+          <ul>
+            <li>5:00 AM: Wake up, hydrate, and stretch.</li>
+            <li>6:00 AM: Workout (alternate strength training and cardio).</li>
+            <li>7:00 AM: Healthy breakfast and plan the day.</li>
+            <li>
+              8:00 AM - 12:00 PM: Deep work session (career, learning, or
+              personal project).
+            </li>
+            <li>12:00 PM: Lunch (light and nutritious).</li>
+            <li>1:00 PM - 3:00 PM: Creative or secondary work block.</li>
+            <li>3:00 PM: Break (read, meditate, or power nap).</li>
+            <li>4:00 PM - 6:00 PM: Second work session or skill-building.</li>
+            <li>6:30 PM: Dinner.</li>
+            <li>
+              7:30 PM - 9:00 PM: Self-reflection (journal, mindfulness, or
+              reading).
+            </li>
+            <li>9:30 PM: Sleep.</li>
+          </ul>
+          <li>Saturday-Sunday: Reflection and Recharge</li>
+          <ul>
+            <li>6:30 AM: Wake up and light exercise (yoga or walk).</li>
+            <li>
+              7:00 AM: Weekly review (goals, accomplishments, and adjustments).
+            </li>
+            <li>9:00 AM - 12:00 PM: Personal project or hobby.</li>
+            <li>1:00 PM: Social time or outdoor activity (with boundaries).</li>
+            <li>4:00 PM: Self-reflection and learning session.</li>
+            <li>7:00 PM: Plan the week ahead.</li>
+          </ul>
+          <li>Non-Negotiables</li>
+          <ul>
+            <li>1-hour workout or physical activity.</li>
+            <li>
+              2 hours of learning (reading, online courses, or skill practice).
+            </li>
+          </ul>
+          <li>Week 1-4 Focus Goals</li>
+          <ul>
+            <li>
+              Momentum
+              <ul>
+                <li>Increase intensity in workouts.</li>
+                <li>Focus on completing one major task or milestone.</li>
+                <li>Integrate mindfulness or meditation into your day.</li>
+              </ul>
+            </li>
+            <li></li>
+          </ul>
+        </ul>
+      </div>
+    </section>
+    <script>
+      const menuBtn = document.querySelector(".menu-bar");
+      const menuList = document.querySelector(".menu-list");
+
+      // Open or close the menu when the hamburger icon is clicked
+      menuBtn.addEventListener("click", () => {
+        menuList.classList.toggle("active");
+      });
+
+      // Close the menu if clicked outside of it
+      document.addEventListener("click", (event) => {
+        // If the click was outside of the hamburger menu and the menu itself, close the menu
+        if (
+          !menuBtn.contains(event.target) &&
+          !menuList.contains(event.target)
+        ) {
+          menuList.classList.remove("active");
+        }
+      });
+
+      // Optional: Close the menu when the mouse leaves the menu area (hover out)
+      menuList.addEventListener("mouseleave", () => {
+        menuList.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>
